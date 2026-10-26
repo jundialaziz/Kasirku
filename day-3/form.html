@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form-todo">
+      <label for="">Tugas</label>
+      <input type="text" id="task" /> <br />
+      <label for="">Kategori</label>
+      <input type="text" id="Kategori" /> <br />
+      <button type="submit" id="Tambah">Simpan</button>
+    </form>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Tasks</th>
+          <th>Categories</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="table-tugas"></tbody>
+    </table>
+    <script>
+      const formTodo = document.querySelector("#form-todo");
+      const task = document.querySelector("#task");
+      const Kategori = document.querySelector("#Kategori");
+      const tableTugas = document.querySelector("#table-tugas");
+      let nomor = 1;
+
+      formTodo.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const tugasText = task.value.trim();
+        const kategoriText = Kategori.value.trim();
+        //alert("Tugas berhasil ditambahkan", task, Kategori);
+        let tr = document.createElement("tr");
+        const noUrut = document.createElement("td");
+        noUrut.textContent = nomor++;
+        tr.appendChild(noUrut);
+        tableTugas.appendChild(tr);
+        const tugasShow = document.createElement("td");
+        tugasShow.textContent = tugasText;
+        tr.appendChild(tugasShow);
+        const kategorishow = document.createElement("td");
+        kategorishow.textContent = kategoriText;
+        tr.appendChild(kategorishow);
+        const btnShow = document.createElement("td");
+        const btnDelete = document.createElement("button");
+        btnDelete.textContent = "Hapus";
+        btnDelete.className = "btn-remove";
+        btnShow.appendChild(btnDelete);
+        tr.appendChild(btnShow);
+
+        formTodo.reset();
+        // tableTugas.innerHTML += `
+        // <tr>
+        //     <td>${nomor++}</td>
+        //     <td>${tugasText}</td>
+        //     <td>${kategoriText}</td>
+        //     <td><button class="btn-remove">Hapus</button></td>
+        // </tr>
+        // `;
+
+
+      });
+    </script>
+  </body>
+</html>

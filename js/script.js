@@ -36,3 +36,4 @@ const daftarProduk = [
 console.log(daftarProduk[2].nama);
 console.log(Number("2500"));
 console.log(Number("abc"));
+console.log(daftarProduk[0]);
