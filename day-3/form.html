@@ -67,6 +67,13 @@
 
 
       });
+
+      tableTugas.addEventListener("click", function (e){
+        if (e.target.classList.contains("btn-remove")){
+            const row = e.target.closest("tr");
+            row.remove();
+        }
+      })
     </script>
   </body>
 </html>
